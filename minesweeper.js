@@ -4,53 +4,28 @@ document.addEventListener('contextmenu', checkForWin)
 
 // Define your `board` object here!
 var board = {
-  cells: [{
-    row: 0,
-    col: 0,
-    isMine: false,
-    hidden: true
-  }, {
-    row: 0,
-    col: 1,
-    isMine: false,
-    hidden: true
-  }, {
-    row: 1,
-    col: 0,
-    isMine: false,
-    hidden: true
-  }, {
-    row: 1,
-    col: 1,
-    isMine: true,
-    hidden: false
-  },{
-    row: 1,
-    col: 2,
-    isMine: false,
-    hidden: true
-  }, {
-    row: 2,
-    col: 0,
-    isMine: false,
-    hidden: true
-  }, {
-    row: 2,
-    col: 1,
-    isMine: true,
-    hidden: false
-  }, {
-    row: 2,
-    col: 2,
-    isMine: false,
-    hidden: true
-  }, {
-    row: 0,
-    col: 2,
-    isMine: true,
-    hidden: false
-  }]
+  cells: []
 }
+
+makeBoard(4)
+
+// Create function to that will make the board 
+function makeBoard(size) {
+  for (x = 0; x < size; x++){
+    for (y = 0; y < size; y++){
+      board.cells.push({
+        row: x,
+        col: y,
+        isMine: Math.random() <0.3,
+        isMarked: false,
+        hidden: true
+      })
+    }
+  }
+startGame
+}
+
+
 
 function startGame () {
   // Don't remove this function call: it makes the game work!
@@ -81,7 +56,13 @@ let notHidden = board.cells.filter(nonHidden => nonHidden.hidden == false)
 let allMinesMarked = mines.every(fail => fail.isMarked == true)
 let surroundingShown = notMines.every(noFail => noFail.hidden == false)
 
-  if (allMinesMarked == true && surroundingShown == true){
+  if (allMinesMarked == true && surroundingShown == true)
+  
+  
+  
+  
+  
+  {
   return lib.displayMessage('You win!')
   }
 }
