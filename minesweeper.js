@@ -57,11 +57,7 @@ let allMinesMarked = mines.every(fail => fail.isMarked == true)
 let surroundingShown = notMines.every(noFail => noFail.hidden == false)
 
   if (allMinesMarked == true && surroundingShown == true)
-  
-  
-  
-  
-  
+
   {
   return lib.displayMessage('You win!')
   }
@@ -89,3 +85,7 @@ function countSurroundingMines (cell) {
   // console.log(surrounding)
 }
 
+function bombSound() {
+  let sound = new Audio('./a_child_vine_sound_effect.mp3')
+  return sound.play()
+}
